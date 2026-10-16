@@ -1,0 +1,5 @@
+sdk/
+*.log
+pkg/
+*-Kurulum.zip
+.temp/

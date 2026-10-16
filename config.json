@@ -1,0 +1,12 @@
+{
+  "sdkRoot": "E:\\CleanDroid\\sdk",
+  "avdName": "EminayDroid",
+  "androidApi": "34",
+  "systemImage": "system-images;android-34;google_apis_playstore;x86_64",
+  "device": "pixel_7",
+  "ramMB": 4096,
+  "heapMB": 1024,
+  "diskGB": 16,
+  "emulatorPort": 5554,
+  "adbPort": 5555
+}

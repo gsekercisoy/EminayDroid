@@ -1,86 +1,88 @@
 <div align="center">
 
+**English** | [Türkçe](README_tr.md)
+
 # EminayDroid
 
-**Reklamsız, bloat'suz Android emülatörü — tek tıkla kurulum**
+**Ad-free, bloat-free Android emulator — one-click setup**
 
-Resmi Google Android Emulator + Play Store imajı. Gereksiz uygulama yok, reklam yok.
+Uses the official Google Android Emulator + Play Store image. No bloatware, no ads.
 
 [![Release](https://img.shields.io/github/v/release/gsekercisoy/EminayDroid)](https://github.com/gsekercisoy/EminayDroid/releases/latest)
 [![License: Scripts MIT](https://img.shields.io/badge/scripts-MIT-green)](LICENSE)
 
-[**⬇ EminayDroid-Setup.exe indir (v1.0.0)**](https://github.com/gsekercisoy/EminayDroid/releases/download/v1.0.0/EminayDroid-Setup.exe)
+[**⬇ Download EminayDroid-Setup.exe (v1.0.0)**](https://github.com/gsekercisoy/EminayDroid/releases/download/v1.0.0/EminayDroid-Setup.exe)
 
 </div>
 
 ---
 
-## 30 saniyede kurulum
+## Setup in 30 seconds
 
-1. Yukarıdaki **indir** bağlantısından `EminayDroid-Setup.exe` dosyasını alıp çalıştır
-2. Kurulum bitince masaüstündeki **"EminayDroid Baslat"** kısayoluna çift tıkla
-3. Play Store'a giriş yap — bitti
+1. Download and run `EminayDroid-Setup.exe` from the link above
+2. Double-click the **"EminayDroid Baslat"** shortcut on your desktop
+3. Sign in to the Play Store — done
 
-> Kurulum bir kez internet gerektirir (JDK 17 + Android SDK + emülatör + Play imajı,
-> ~2.5 GB tek seferlik iner). Sonrasında internet olmadan da çalışır.
+> Setup requires internet once (JDK 17 + Android SDK + emulator + Play image,
+> ~2.5 GB one-time download). Works offline afterwards.
 
-## Özellikler
+## Features
 
-| | EminayDroid | Tipik ücretsiz emülatörler |
+| | EminayDroid | Typical free emulators |
 |---|---|---|
-| Reklam | Yok | Genelde var |
-| Ön yüklü gereksiz uygulama | Yok | Genelde var |
-| Play Store | Var (resmi imaj) | Değişken |
-| Harici APK kurulumu (`APK-Kur.bat`) | Var | Var |
-| Kaynak | Açık scriptler | Kapalı kutu |
+| Ads | None | Usually present |
+| Preinstalled bloatware | None | Usually present |
+| Play Store | Yes (official image) | Varies |
+| External APK install (`APK-Kur.bat`) | Yes | Yes |
+| Sources | Open scripts | Black box |
 
-## Gereksinim
+## Requirements
 
 - Windows 10/11 64-bit
-- BIOS'ta sanallaştırma açık (VT-x / AMD-V)
-- ~20 GB boş disk alanı
-- İlk kurulum için internet
+- Virtualization enabled in BIOS (VT-x / AMD-V)
+- ~20 GB free disk space
+- Internet for the initial setup
 
-## El ile kurulum (alternatif)
+## Manual setup (alternative)
 
-Setup.exe kullanmak istemezsen:
+If you prefer not to use the setup exe:
 
 ```powershell
-.\Setup.ps1            # SDK + imaj + AVD kurar
-.\Start-Emulator.ps1   # emülatörü başlatır
-.\Install-Apk.ps1 C:\yol\uygulama.apk   # harici APK kurar
+.\Setup.ps1        # installs SDK + image + AVD
+.\Start-Emulator.ps1
+.\Install-Apk.ps1 C:\path\to\app.apk
 ```
 
-`Baslat.bat` ve `APK-Kur.bat` aynı işleri çift tıkla yapar.
-Ayarlar (`config.json`): 4 GB RAM, 16 GB disk, Pixel 7 profili, Play Store imajı.
+`Baslat.bat` / `APK-Kur.bat` do the same with a double click.
+Settings (`config.json`): 4 GB RAM, 16 GB disk, Pixel 7 profile, Play Store image.
 
-## Dosyalar
+## Files
 
-| Dosya | Açıklama |
+| File | Description |
 |---|---|
-| `EminayDroid-Setup.exe` | Tek dosyalık kurucu (önerilen yol) |
-| `Kurulum.bat`, `Baslat.bat`, `APK-Kur.bat` | Kurucunun kaynak scriptleri |
-| `Setup.ps1`, `Start-Emulator.ps1`, `Install-Apk.ps1` | PowerShell alternatifleri |
-| `config.json` | RAM / disk / cihaz / imaj ayarları |
-| `stub.cs` | Setup.exe'nin C# kaynağı (derleme: `csc.exe` ile) |
-| `eminay.ico` | Uygulama simgesi |
+| `EminayDroid-Setup.exe` | Single-file installer (recommended path) |
+| `Kurulum.bat`, `Baslat.bat`, `APK-Kur.bat` | Installer source scripts |
+| `Setup.ps1`, `Start-Emulator.ps1`, `Install-Apk.ps1` | PowerShell alternatives |
+| `config.json` | RAM / disk / device / image settings |
+| `stub.cs` | C# source of Setup.exe (build with `csc.exe`) |
+| `eminay.ico` | App icon |
 
-## Sık sorulanlar
+## FAQ
 
-**Kurulum neden internet istiyor?**
-APK'nın içi küçüktür (~90 KB); JDK, SDK, emülatör ve sistem imajı kurulum
-anında Google/Microsoft sunucularından iner. Tıpkı Chrome'un web kurucusu gibi.
+**Why does setup need internet?**
+The exe is small (~90 KB); the JDK, SDK, emulator and system image download
+from Google/Microsoft servers during installation. Like Chrome's web installer.
 
-**Eski emülatörümle çakışır mı?**
-Hayır. SDK `%LOCALAPPDATA%\CleanDroid`, AVD `EminayDroid` adıyla kurulur.
-Başka emülatörlere dokunmaz.
+**Will it conflict with my old emulator?**
+No. The SDK goes to `%LOCALAPPDATA%\CleanDroid` and the AVD is named
+`EminayDroid`. Other emulators are untouched.
 
-**Verilerim nerede?**
-AVD verileri `%USERPROFILE%\.android\avd\EminayDroid.avd` altındadır.
-Silmek istersen emülatör kapalıyken bu klasörü silmen yeterli.
+**Where is my data?**
+AVD data lives under `%USERPROFILE%\.android\avd\EminayDroid.avd`.
+Delete that folder (while the emulator is closed) for a fresh start.
 
-## Lisans notu
+## License note
 
-Bu repodaki scriptler MIT ile lisanslıdır (bkz. `LICENSE`).
-Kurulum sırasında indirilen Android SDK bileşenleri Google lisanslarına
-tabidir ve kurulumda onaylanır.
+Scripts in this repo are MIT licensed (see `LICENSE`).
+Android SDK components downloaded during installation remain subject to
+Google's licenses, accepted during setup.
